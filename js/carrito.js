@@ -1,39 +1,4 @@
-const marketContent = document.getElementById("marketContent");
-const verCarrito = document.getElementById("verCarrito")
-const modalContainer = document.getElementById("modalContainer")
-
-let carrito = []
-
-productos.forEach((product)=> {
-    //creamos un DIV dentro de la pagina principal y le asignamos contenido
-    let content = document.createElement("div");
-    content.className = "card";
-    content.innerHTML = `
-        <img src="${product.img}">
-        <h3>${product.name}</h3>
-        <p class="price">${product.price} $</p>
-    `;
-
-    marketContent.append(content);
-
-    let comprar = document.createElement("button")
-    comprar.innerText = "comprar";
-    comprar.className = "comprar"
-
-    content.append(comprar);
-
-    comprar.addEventListener("click", () => {
-        carrito.push({
-            id : product.id,
-            img: product.img,
-            name: product.name,
-            price: product.price,
-        });
-        console.log(carrito)
-    });
-});
-
-verCarrito.addEventListener("click", ()=> {
+const pintarCarrito = () => {
     modalContainer.innerHTML = "";
     modalContainer.style.display = "flex";
 
@@ -66,6 +31,13 @@ verCarrito.addEventListener("click", ()=> {
             <p>${product.price} $</p>
         `;
         modalContainer.append(carritoContent);
+
+        let eliminar = document.createElement("span");
+        eliminar.innerText = "❌";
+        eliminar.className = "delete-product";
+        carritoContent.append(eliminar);
+
+        eliminar.addEventListener("click", eliminarProducto)
     });
 
     //utilizamos metodo reduce que recorre el carrito
@@ -78,4 +50,16 @@ verCarrito.addEventListener("click", ()=> {
     totalCompra.className = "total-content";
     totalCompra.innerHTML =`Total a Pagar: ${total} $`;
     modalContainer.append(totalCompra) 
-});
+};
+
+verCarrito.addEventListener("click", pintarCarrito);
+
+const eliminarProducto =  () => {
+    const foundId = carrito.find((element) => element.id);
+
+    carrito = carrito.filter((carritoId) => {
+        return carritoId !== foundId
+    });
+
+    pintarCarrito();
+};
