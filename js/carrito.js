@@ -29,6 +29,8 @@ const pintarCarrito = () => {
             <img src="${product.img}">
             <h3>${product.name}</h3>
             <p>${product.price} $</p>
+            <p>Cantidad: ${product.cantidad}</p>
+            <p>Total: ${product.cantidad * product.price}</p>
         `;
         modalContainer.append(carritoContent);
 
@@ -44,7 +46,7 @@ const pintarCarrito = () => {
     //pasamos dos parametros un acumulador y el(representa cada uno de los productos de los carritos)
     //numero final arranca en 0 y se va sumando a partir del 
     //obtenemos el total
-    const total = carrito.reduce((acc, el) => acc + el.price, 0);
+    const total = carrito.reduce((acc, el) => acc + el.price * el.cantidad, 0);
 
     const totalCompra = document.createElement("div");
     totalCompra.className = "total-content";
@@ -62,4 +64,10 @@ const eliminarProducto =  () => {
     });
 
     pintarCarrito();
+    carritoCounter();
 };
+
+const carritoCounter = () => {
+    cantidaCarrito.style.display = "block";
+    cantidaCarrito.innerText = carrito.length;
+}
