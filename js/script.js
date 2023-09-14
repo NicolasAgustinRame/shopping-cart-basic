@@ -3,7 +3,8 @@ const verCarrito = document.getElementById("verCarrito");
 const modalContainer = document.getElementById("modalContainer");
 const cantidaCarrito = document.getElementById("cantidadCarrito");
 
-let carrito = []
+//si esta guardado algo en el localStorage es un array simple.
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 productos.forEach((product)=> {
     //creamos un DIV dentro de la pagina principal y le asignamos contenido
@@ -44,8 +45,19 @@ productos.forEach((product)=> {
                 price: product.price,
                 cantidad: product.cantidad,
             });
-        }
         console.log(carrito)
         carritoCounter();
+        saveLocal();
+        }
     });
 });
+
+
+//trabajar con localStorage
+//set item -> guardamos lo que queremos 
+const saveLocal = () => {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+//get item -> obtenemos lo que queremos
+
