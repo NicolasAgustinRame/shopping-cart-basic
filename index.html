@@ -13,10 +13,9 @@
     <div class="nav-container">
         <nav class="navbar">
             <h1 class="navbar-logo">Market</h1>
-            <h1 class="ver-carrito" id="verCarrito">🛒 <span id="cantidadCarrito" class="cantidad-carrito"></span></h1>
+            <h1 class="ver-carrito" id="verCarrito">🛒<span id="cantidadCarrito" class="cantidad-carrito"></span></h1>
         </nav>
     </div>
-
 
     <!--banner-->
     <div class="banner">
@@ -32,7 +31,17 @@
     <!--modal container-->
     <div id="modalContainer" class="modal-container"></div>
 
-
+    <!--add product-->
+    <div id="addProductContainer" class="add-product-container">
+        <h2>Add Products</h2>
+        <p>Seccion to add products to the market. To add a new product fill out this form.</p>
+        <form>
+            <label for="name">Name: </label> <input type="text" id="txtName" placeholder="enter name..." required> <br>
+            <label for="price">Price: </label> <input type="text" id="txtPrice" placeholder="enter price..." required> <br>
+            <label for="urlImg">Image URL: </label> <input type="url" id="txtImageUrl" placeholder="enter image..." required> <br>
+            <input type="button" id="btnSend" class="buttonSend" value="SEND">
+        </form>
+    </div>
     <script src="./js/products.js"></script>
     <script src="./js/script.js"></script>
     <script src="./js/carrito.js"></script>

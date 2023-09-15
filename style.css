@@ -196,3 +196,61 @@ body {
 .restar {
     cursor: pointer;
 }
+
+.add-product-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 30px auto;
+    width: 30%; /* Ajusta el ancho según tus preferencias */
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    background-color: #ffffff; 
+}
+
+.add-product-container h2 {
+    font-size: 42px;
+    margin-bottom: 0%;
+}
+
+.add-product-container p {
+    font-size: 15px;
+    margin-bottom: 0%;
+}
+
+.add-product-container form {
+    font-size: 20px;
+    padding: 20px;
+}
+
+.add-product-container input {
+    margin-top: 30px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+.add-product-container input::placeholder {
+    color: #fff;
+}
+
+#btnSend {
+    background-color: #000;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+#btnSend:hover {
+    opacity: 0.9;
+    transform: scale(1.1);
+}
